@@ -48,4 +48,10 @@ public class AttendanceService {
     public Attendance getById(Long id) {
         return attendanceDAO.getById(id);
     }
+    public AttendanceStatus parseStatus(String inputStatus) {
+        if (inputStatus.equalsIgnoreCase("CÓ MẶT")) {
+            inputStatus = "PRESENT";
+        }
+        return AttendanceStatus.valueOf(inputStatus);
+    }
 } 

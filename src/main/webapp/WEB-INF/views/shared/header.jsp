@@ -14,6 +14,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<c:url value='/attendance'/>">Attendance</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<c:url value='/aop-monitor'/>">AOP Monitor</a>
+                </li>
             </ul>
         </div>
     </div>

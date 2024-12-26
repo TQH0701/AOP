@@ -3,6 +3,7 @@ package com.example.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.model.Employee;
 import com.example.service.DepartmentService;
 import com.example.service.EmployeeService;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/employees")
@@ -37,13 +40,29 @@ public class EmployeeController {
     }
 
     @PostMapping("/save")
-    public String saveEmployee(@ModelAttribute Employee employee) {
-        if (employee.getId() == null) {
-            employeeService.save(employee);
-        } else {
-            employeeService.update(employee);
+    public String saveEmployee(
+            @Valid @ModelAttribute Employee employee,
+            BindingResult result,
+            Model model) {
+        if (result.hasErrors()) {
+            // Nếu có lỗi validate, trả lại form với thông báo lỗi
+            model.addAttribute("departments", departmentService.getAll());
+            model.addAttribute("error", "Failed to save the employee. Please check the fields.");
+            return "employee/form";
         }
-        return "redirect:/employees";
+        try {
+            if (employee.getId() == null) {
+                employeeService.save(employee);
+            } else {
+                employeeService.update(employee);
+            }
+            return "redirect:/employees"; // Thành công: chuyển về danh sách nhân viên
+        } catch (Exception e) {
+            // Xử lý lỗi không mong muốn
+            model.addAttribute("departments", departmentService.getAll());
+            model.addAttribute("error", "An unexpected error occurred while saving.");
+            return "employee/form";
+        }
     }
 
     @GetMapping("/edit/{id}")
@@ -58,4 +77,4 @@ public class EmployeeController {
         employeeService.delete(id);
         return "redirect:/employees";
     }
-} 
+}
