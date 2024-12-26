@@ -49,9 +49,21 @@ public class AttendanceService {
         return attendanceDAO.getById(id);
     }
     public AttendanceStatus parseStatus(String inputStatus) {
-        if (inputStatus.equalsIgnoreCase("CÓ MẶT")) {
-            inputStatus = "PRESENT";
+        if (inputStatus == null) {
+            throw new IllegalArgumentException("Status cannot be null");
         }
-        return AttendanceStatus.valueOf(inputStatus);
+
+        // Convert Vietnamese input to corresponding AttendanceStatus enum
+        switch (inputStatus.trim().toUpperCase()) {
+            case "Present":
+                return AttendanceStatus.PRESENT;
+            case "Late":
+                return AttendanceStatus.LATE;
+            case "Absent":
+                return AttendanceStatus.ABSENT;
+            default:
+                throw new IllegalArgumentException("Invalid status: " + inputStatus);
+        }
     }
+
 } 

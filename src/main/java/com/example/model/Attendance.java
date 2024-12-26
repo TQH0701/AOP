@@ -24,11 +24,11 @@ public class Attendance {
     private Long id;
     
     @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @JoinColumn(name = "employee_id", nullable = false)
     private Employee employee;
     
     @NotNull(message = "Date is required")
-    @Column(name = "date")
+    @Column(name = "date", nullable = false)
     private LocalDate date;
     
     @Column(name = "check_in")
@@ -37,9 +37,15 @@ public class Attendance {
     @Column(name = "check_out")
     private LocalTime checkOut;
     
-    @Column(name = "status")
+    @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
     private AttendanceStatus status;
+    
+    @Column(name = "isCheckedIn", nullable = false)
+    private boolean isCheckedIn = false;
+    
+    @Column(name = "isCheckedOut", nullable = false)
+    private boolean isCheckedOut = false;
     
     // Getters and Setters
     public Long getId() {
@@ -89,12 +95,28 @@ public class Attendance {
     public void setStatus(AttendanceStatus status) {
         this.status = status;
     }
+
+    public boolean isCheckedIn() {
+        return isCheckedIn;
+    }
+
+    public void setCheckedIn(boolean isCheckedIn) {
+        this.isCheckedIn = isCheckedIn;
+    }
+
+    public boolean isCheckedOut() {
+        return isCheckedOut;
+    }
+
+    public void setCheckedOut(boolean isCheckedOut) {
+        this.isCheckedOut = isCheckedOut;
+    }
 }
 
 // Enum for attendance status
-/*public enum AttendanceStatus {
-    PRESENT,
-    ABSENT,
-    LATE,
-    HALF_DAY
-    }*/
+//public enum AttendanceStatus {
+    //PRESENT,
+    //ABSENT,
+    //LATE,
+    //HALF_DAY
+//}
