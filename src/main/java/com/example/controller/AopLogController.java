@@ -20,13 +20,16 @@ public class AopLogController {
     public String showLogs(Model model) {
         List<String> logs = logService.getLogs();
         model.addAttribute("logs", logs);
+        model.addAttribute("totalLogs", logs.size());
+        model.addAttribute("currentTime", java.time.LocalDateTime.now());
         return "aop/monitor";
     }
+
 
     // Xóa tất cả logs
     @PostMapping("/clear")
     public String clearLogs() {
         logService.clearLogs();
-        return "redirect:/monitor";
+        return "redirect:/aop-monitor";
     }
 }

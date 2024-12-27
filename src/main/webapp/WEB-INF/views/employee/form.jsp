@@ -13,23 +13,23 @@
     <!-- Custom CSS -->
     <style>
         body {
-            background-color: #f7f7f7;
+            background-color: #f4f7fa;
             font-family: 'Arial', sans-serif;
         }
 
         .container {
-            background-color: #fff;
-            border-radius: 8px;
+            background-color: #ffffff;
+            border-radius: 10px;
             padding: 40px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            margin: 30px auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            margin: 50px auto;
         }
 
         h2 {
             text-align: center;
             margin-bottom: 30px;
-            font-size: 28px;
+            font-size: 26px;
             color: #333;
         }
 
@@ -41,9 +41,10 @@
         .form-control {
             border-radius: 5px;
             border: 1px solid #ced4da;
-            padding: 10px;
+            padding: 12px 15px;
             font-size: 16px;
-            height: 40px;
+            height: 20px; /* Tăng chiều cao của ô điền */
+            width: 95%; /* Đảm bảo ô điền chiếm hết chiều rộng của container */
         }
 
         .form-control:focus {
@@ -52,7 +53,8 @@
         }
 
         .form-group select {
-            height: 45px;
+            height: 50px;
+            padding: 12px 15px;
         }
 
         .btn {
@@ -107,42 +109,44 @@
                    method="post" modelAttribute="employee">
             <form:hidden path="id"/>
             
-            <!-- Họ -->
-            <div class="form-group">
-                <label>Họ:</label>
-                <form:input path="firstName" class="form-control"/>
-                <form:errors path="firstName" cssClass="text-danger"/>
-            </div>
-            
-            <!-- Tên -->
-            <div class="form-group">
-                <label>Tên:</label>
-                <form:input path="lastName" class="form-control"/>
-                <form:errors path="lastName" cssClass="text-danger"/>
-            </div>
-            
-            <!-- Email -->
-            <div class="form-group">
-                <label>Email:</label>
-                <form:input path="email" class="form-control" type="email"/>
-                <form:errors path="email" cssClass="text-danger"/>
-            </div>
-            
-            <!-- Chức vụ -->
-            <div class="form-group">
-                <label>Chức vụ:</label>
-                <form:input path="position" class="form-control"/>
-                <form:errors path="position" cssClass="text-danger"/>
-            </div>
-            
-            <!-- Phòng ban -->
-            <div class="form-group">
-                <label>Phòng ban:</label>
-                <form:select path="department.id" class="form-control">
-                    <form:option value="" label="-- Chọn Phòng Ban --"/>
-                    <form:options items="${departments}" itemValue="id" itemLabel="name"/>
-                </form:select>
-                <form:errors path="department" cssClass="text-danger"/>
+            <div class="row">
+                <!-- Họ -->
+                <div class="form-group col-12">
+                    <label for="firstName">Họ:</label>
+                    <form:input path="firstName" class="form-control" id="firstName"/>
+                    <form:errors path="firstName" cssClass="text-danger"/>
+                </div>
+                
+                <!-- Tên -->
+                <div class="form-group col-12">
+                    <label for="lastName">Tên:</label>
+                    <form:input path="lastName" class="form-control" id="lastName"/>
+                    <form:errors path="lastName" cssClass="text-danger"/>
+                </div>
+                
+                <!-- Email -->
+                <div class="form-group col-12">
+                    <label for="email">Email:</label>
+                    <form:input path="email" class="form-control" type="email" id="email"/>
+                    <form:errors path="email" cssClass="text-danger"/>
+                </div>
+                
+                <!-- Chức vụ -->
+                <div class="form-group col-12">
+                    <label for="position">Chức vụ:</label>
+                    <form:input path="position" class="form-control" id="position"/>
+                    <form:errors path="position" cssClass="text-danger"/>
+                </div>
+                
+                <!-- Phòng ban -->
+                <div class="form-group col-12">
+                    <label for="department">Phòng ban:</label>
+                    <form:select path="department.id" class="form-control" id="department">
+                        <form:option value="" label="-- Chọn Phòng Ban --"/>
+                        <form:options items="${departments}" itemValue="id" itemLabel="name"/>
+                    </form:select>
+                    <form:errors path="department" cssClass="text-danger"/>
+                </div>
             </div>
             
             <!-- Các nút -->

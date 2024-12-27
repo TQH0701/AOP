@@ -23,16 +23,16 @@
         .container {
             background-color: #fff;
             padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
             width: 100%;
         }
 
         h2 {
             text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: 26px;
+            margin-bottom: 25px;
             color: #333;
         }
 
@@ -44,48 +44,57 @@
 
         .form-control {
             font-size: 16px;
-            height: 40px;
-            border-radius: 5px;
+            height: 45px;
+            border-radius: 8px;
             border: 1px solid #ced4da;
-            padding: 10px;
+            padding: 5px;
+            width: 100%;
+            margin-bottom: 15px;
         }
 
         .form-control:focus {
             border-color: #007bff;
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 120px;
+            width: 100%;
+            margin-bottom: 15px;
         }
 
         .btn {
-            width: 48%;
+            width: 45%;
             padding: 12px;
             font-size: 16px;
-            border-radius: 5px;
+            border-radius: 8px;
             text-align: center;
+            transition: all 0.3s ease-in-out;
         }
 
         .btn-primary {
             background-color: #007bff;
             border-color: #007bff;
+            color: white;
         }
 
         .btn-primary:hover {
             background-color: #0056b3;
             border-color: #0056b3;
+            transform: translateY(-3px);
         }
 
         .btn-secondary {
             background-color: #6c757d;
             border-color: #6c757d;
+            color: white;
         }
 
         .btn-secondary:hover {
             background-color: #5a6268;
             border-color: #545b62;
+            transform: translateY(-3px);
         }
 
         .text-danger {
@@ -96,7 +105,31 @@
         .form-buttons {
             display: flex;
             justify-content: space-between;
-            margin-top: 20px;
+            margin-top: 30px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            .form-group label {
+                font-size: 14px;
+            }
+
+            .btn {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .form-control, .form-group textarea {
+                width: 100%;
+            }
         }
     </style>
 </head>

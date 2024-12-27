@@ -41,13 +41,20 @@
         }
 
         .btn-secondary {
-            background-color: #6c757d;
-            border-color: #6c757d;
+            background-color: #3498db; /* Xanh dương */
+            border-color: #2980b9;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
         }
 
         .btn-secondary:hover {
-            background-color: #5a6268;
-            border-color: #545b62;
+            background-color: #2980b9; /* Xanh dương đậm khi hover */
+            border-color: #1c5d8a;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .table {
@@ -67,7 +74,7 @@
         }
 
         .table th {
-            background-color: #343a40;
+            background-color:  #0d6efd;
             color: white;
         }
 

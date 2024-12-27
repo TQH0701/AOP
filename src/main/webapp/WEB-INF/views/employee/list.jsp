@@ -1,93 +1,86 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách Nhân viên</title>
+    <link rel="stylesheet" href="<c:url value='/webjars/bootstrap/4.6.0/css/bootstrap.min.css'/>">
     <style>
-        /* Base styles */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9fafb;
             margin: 0;
             padding: 0;
         }
 
-        h2 {
-            text-align: center;
-            color: #333;
-            margin: 30px 0;
-        }
-
-        a {
-            text-decoration: none;
-            color: #007bff;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
         .container {
-            width: 85%;
+            width: 90%;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 40px auto;
             background: #ffffff;
             padding: 30px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
 
-        .add-button {
+        h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        .add-button, .back-button {
             display: inline-block;
             margin-bottom: 30px;
-            padding: 12px 25px;
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
+            padding: 12px 30px;
             font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .add-button {
+            background-color: #28a745;
+            color: white;
         }
 
         .add-button:hover {
             background-color: #218838;
         }
 
-        /* Table styles */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 30px;
+            margin-top: 20px;
+            background-color: #fff;
         }
 
         th, td {
-            padding: 12px 20px;
+            padding: 15px 20px;
             text-align: left;
             border-bottom: 1px solid #ddd;
-            font-size: 15px;
         }
 
         th {
             background-color: #007bff;
             color: white;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
         tr:hover {
-            background-color: #f9f9f9;
+            background-color: #f1f1f1;
         }
 
         .actions a {
-            margin-right: 15px;
-            color: #007bff;
-            font-size: 14px;
-            padding: 6px 12px;
+            margin-right: 10px;
+            padding: 8px 15px;
+            border-radius: 5px;
             border: 1px solid #007bff;
-            border-radius: 4px;
-            transition: background-color 0.3s, color 0.3s;
+            color: #007bff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
         }
 
         .actions a:hover {
@@ -95,48 +88,14 @@
             color: white;
         }
 
-        .actions a:active {
-            background-color: #0056b3;
-        }
-
-        /* Back button styles */
         .back-button {
-            display: inline-block;
-            padding: 8px 15px; /* Decrease size of button */
             background-color: #6c757d;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            font-size: 14px; /* Smaller font size */
-            cursor: pointer;
-            margin-top: 20px;
-            text-align: center;
-            transition: background-color 0.3s ease;
+            color: white;
+            margin-top: 30px;
         }
 
         .back-button:hover {
             background-color: #5a6268;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .container {
-                width: 95%;
-                padding: 20px;
-            }
-
-            .add-button, .back-button {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            table {
-                font-size: 14px;
-            }
-
-            th, td {
-                padding: 10px;
-            }
         }
     </style>
 </head>

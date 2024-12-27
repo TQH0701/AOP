@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<c:url value='/webjars/bootstrap/4.6.0/css/bootstrap.min.css'/>">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #e3f2fd; /* Sử dụng màu nền giống trang quản lý hệ thống */
             font-family: 'Arial', sans-serif;
         }
 
@@ -25,7 +25,7 @@
             text-align: center;
             font-size: 28px;
             margin-bottom: 30px;
-            color: #333;
+            color: #0d6efd; /* Màu xanh chủ đạo */
         }
 
         .alert {
@@ -34,13 +34,22 @@
         }
 
         .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
+            background-color: #0d6efd; /* Màu xanh chủ đạo */
+            border-color: #0d6efd;
+            padding: 12px 25px; /* Tăng kích thước nút */
+            font-size: 16px; /* Cỡ chữ lớn hơn */
+            border-radius: 50px; /* Tạo hình tròn cho các góc */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Thêm hiệu ứng khi hover */
         }
 
         .btn-primary:hover {
             background-color: #0056b3;
             border-color: #0056b3;
+            transform: scale(1.1); /* Phóng to nút khi hover */
+        }
+
+        .btn-primary:focus {
+            box-shadow: 0 0 10px rgba(13, 110, 253, 0.5); /* Thêm bóng đổ khi focus */
         }
 
         .table {
@@ -59,7 +68,7 @@
         }
 
         .thead-dark {
-            background-color: #343a40;
+            background-color: #0d6efd; /* Màu xanh chủ đạo */
             color: white;
         }
 

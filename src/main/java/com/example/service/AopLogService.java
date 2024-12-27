@@ -24,4 +24,4 @@ public class AopLogService {
     public void clearLogs() {
         logs.clear();
     }
-} 
+}
